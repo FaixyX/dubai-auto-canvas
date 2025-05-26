@@ -52,26 +52,6 @@ const TestimonialsSection = () => {
     return () => clearInterval(timer);
   }, [testimonials.length, isAnimating]);
 
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      });
-    }, observerOptions);
-
-    const animateElements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right');
-    animateElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   const nextTestimonial = () => {
     if (!isAnimating) {
       setIsAnimating(true);
@@ -105,9 +85,9 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-20 bg-gray-900 text-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-on-scroll">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            What Our <span className="text-red-500 gradient-text">Customers Say</span>
+            What Our <span className="text-red-500">Customers Say</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Don't just take our word for it - hear from satisfied customers across Dubai
@@ -116,28 +96,30 @@ const TestimonialsSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Main Testimonial Card */}
-          <div className="relative">
-            <Card className={`bg-white/10 backdrop-blur-sm border-0 shadow-2xl overflow-hidden animate-on-scroll hover-lift transition-all duration-500 ${isAnimating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}>
+          <div className="relative min-h-[400px] flex items-center">
+            <Card className={`w-full bg-white/10 backdrop-blur-sm border-0 shadow-2xl transition-all duration-300 ${
+              isAnimating ? 'opacity-70 scale-98' : 'opacity-100 scale-100'
+            }`}>
               <CardContent className="p-8 md:p-12 text-center">
-                <div className="mb-6 animate-scale-in">
+                <div className="mb-6">
                   <img
                     src={testimonials[currentTestimonial].avatar}
                     alt={testimonials[currentTestimonial].name}
-                    className="w-20 h-20 rounded-full mx-auto border-4 border-red-500 shadow-lg animate-pulse-gentle"
+                    className="w-20 h-20 rounded-full mx-auto border-4 border-red-500 shadow-lg"
                   />
                 </div>
 
-                <div className="flex justify-center mb-6 animate-fade-in animate-delay-200">
+                <div className="flex justify-center mb-6">
                   {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current animate-bounce-gentle" style={{ animationDelay: `${i * 100}ms` }} />
+                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
 
-                <blockquote className="text-xl md:text-2xl text-gray-100 mb-6 italic leading-relaxed animate-fade-in animate-delay-300">
+                <blockquote className="text-xl md:text-2xl text-gray-100 mb-6 italic leading-relaxed">
                   "{testimonials[currentTestimonial].text}"
                 </blockquote>
 
-                <div className="text-lg animate-fade-in animate-delay-500">
+                <div className="text-lg">
                   <div className="font-bold text-white">{testimonials[currentTestimonial].name}</div>
                   <div className="text-red-400">{testimonials[currentTestimonial].location}</div>
                 </div>
@@ -151,7 +133,7 @@ const TestimonialsSection = () => {
             size="sm"
             onClick={prevTestimonial}
             disabled={isAnimating}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300 disabled:opacity-50"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300 disabled:opacity-50 z-10"
           >
             <ChevronLeft className="w-6 h-6" />
           </Button>
@@ -161,14 +143,14 @@ const TestimonialsSection = () => {
             size="sm"
             onClick={nextTestimonial}
             disabled={isAnimating}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300 disabled:opacity-50"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300 disabled:opacity-50 z-10"
           >
             <ChevronRight className="w-6 h-6" />
           </Button>
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center mt-8 space-x-2 animate-on-scroll animate-delay-700">
+        <div className="flex justify-center mt-8 space-x-2">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -176,7 +158,7 @@ const TestimonialsSection = () => {
               disabled={isAnimating}
               className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 disabled:cursor-not-allowed ${
                 index === currentTestimonial 
-                  ? 'bg-red-500 scale-125 animate-pulse-gentle' 
+                  ? 'bg-red-500 scale-125' 
                   : 'bg-white/30 hover:bg-white/50'
               }`}
             />
@@ -186,7 +168,7 @@ const TestimonialsSection = () => {
         {/* Background Testimonials (Floating) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 opacity-50">
           {testimonials.slice(0, 3).map((testimonial, index) => (
-            <Card key={index} className={`bg-white/5 backdrop-blur-sm border-white/10 hover-lift animate-on-scroll`} style={{ animationDelay: `${index * 200}ms` }}>
+            <Card key={index} className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300">
               <CardContent className="p-6 text-center">
                 <div className="flex justify-center mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
