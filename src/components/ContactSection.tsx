@@ -39,7 +39,7 @@ const ContactSection = () => {
             Get In <span className="text-red-600">Touch</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready for professional auto service? Contact us now for immediate assistance
+            Ready for professional auto service? Contact us now for immediate assistance with tyre repairing in Dubai and other automotive needs
           </p>
         </div>
 
@@ -51,7 +51,7 @@ const ContactSection = () => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name</Label>
+                  <Label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name *</Label>
                   <Input
                     id="name"
                     type="text"
@@ -64,7 +64,7 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number</Label>
+                  <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number *</Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -95,7 +95,7 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="location" className="text-sm font-medium text-gray-700">Your Location</Label>
+                  <Label htmlFor="location" className="text-sm font-medium text-gray-700">Your Location *</Label>
                   <Input
                     id="location"
                     type="text"
