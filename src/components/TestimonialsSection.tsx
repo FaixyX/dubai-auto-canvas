@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const testimonials = [
     {
@@ -40,10 +41,16 @@ const TestimonialsSection = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      if (!isAnimating) {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+          setIsAnimating(false);
+        }, 300);
+      }
     }, 5000);
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, [testimonials.length, isAnimating]);
 
   useEffect(() => {
     const observerOptions = {
@@ -66,11 +73,33 @@ const TestimonialsSection = () => {
   }, []);
 
   const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+        setIsAnimating(false);
+      }, 300);
+    }
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
+
+  const goToTestimonial = (index: number) => {
+    if (!isAnimating && index !== currentTestimonial) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentTestimonial(index);
+        setIsAnimating(false);
+      }, 300);
+    }
   };
 
   return (
@@ -87,39 +116,42 @@ const TestimonialsSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Main Testimonial Card */}
-          <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-2xl overflow-hidden animate-on-scroll hover-lift transition-all duration-500" key={currentTestimonial}>
-            <CardContent className="p-8 md:p-12 text-center">
-              <div className="mb-6 animate-scale-in">
-                <img
-                  src={testimonials[currentTestimonial].avatar}
-                  alt={testimonials[currentTestimonial].name}
-                  className="w-20 h-20 rounded-full mx-auto border-4 border-red-500 shadow-lg animate-pulse-gentle"
-                />
-              </div>
+          <div className="relative">
+            <Card className={`bg-white/10 backdrop-blur-sm border-0 shadow-2xl overflow-hidden animate-on-scroll hover-lift transition-all duration-500 ${isAnimating ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}>
+              <CardContent className="p-8 md:p-12 text-center">
+                <div className="mb-6 animate-scale-in">
+                  <img
+                    src={testimonials[currentTestimonial].avatar}
+                    alt={testimonials[currentTestimonial].name}
+                    className="w-20 h-20 rounded-full mx-auto border-4 border-red-500 shadow-lg animate-pulse-gentle"
+                  />
+                </div>
 
-              <div className="flex justify-center mb-6 animate-fade-in animate-delay-200">
-                {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current animate-bounce-gentle" style={{ animationDelay: `${i * 100}ms` }} />
-                ))}
-              </div>
+                <div className="flex justify-center mb-6 animate-fade-in animate-delay-200">
+                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-400 fill-current animate-bounce-gentle" style={{ animationDelay: `${i * 100}ms` }} />
+                  ))}
+                </div>
 
-              <blockquote className="text-xl md:text-2xl text-gray-100 mb-6 italic leading-relaxed animate-fade-in animate-delay-300">
-                "{testimonials[currentTestimonial].text}"
-              </blockquote>
+                <blockquote className="text-xl md:text-2xl text-gray-100 mb-6 italic leading-relaxed animate-fade-in animate-delay-300">
+                  "{testimonials[currentTestimonial].text}"
+                </blockquote>
 
-              <div className="text-lg animate-fade-in animate-delay-500">
-                <div className="font-bold text-white">{testimonials[currentTestimonial].name}</div>
-                <div className="text-red-400">{testimonials[currentTestimonial].location}</div>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="text-lg animate-fade-in animate-delay-500">
+                  <div className="font-bold text-white">{testimonials[currentTestimonial].name}</div>
+                  <div className="text-red-400">{testimonials[currentTestimonial].location}</div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Navigation Buttons */}
           <Button
             variant="outline"
             size="sm"
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300"
+            disabled={isAnimating}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300 disabled:opacity-50"
           >
             <ChevronLeft className="w-6 h-6" />
           </Button>
@@ -128,7 +160,8 @@ const TestimonialsSection = () => {
             variant="outline"
             size="sm"
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300"
+            disabled={isAnimating}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30 rounded-full p-3 hover:scale-110 transition-all duration-300 disabled:opacity-50"
           >
             <ChevronRight className="w-6 h-6" />
           </Button>
@@ -139,8 +172,9 @@ const TestimonialsSection = () => {
           {testimonials.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentTestimonial(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+              onClick={() => goToTestimonial(index)}
+              disabled={isAnimating}
+              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 disabled:cursor-not-allowed ${
                 index === currentTestimonial 
                   ? 'bg-red-500 scale-125 animate-pulse-gentle' 
                   : 'bg-white/30 hover:bg-white/50'
