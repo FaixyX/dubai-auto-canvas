@@ -23,14 +23,14 @@ const HeroSection = () => {
           <span className="text-white">in Dubai</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed animate-fade-in animate-delay-300">
           24/7 Roadside Assistance | Mobile & Workshop Services | Trusted by Dubai Drivers
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-delay-600">
           <Button 
             size="lg" 
-            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-red-500/25"
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-red-500/25 animate-pulse-gentle"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Book Now
@@ -38,7 +38,7 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+            className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-8 py-4 text-lg font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 backdrop-blur-sm hover:shadow-lg hover:shadow-red-500/25"
             onClick={() => window.location.href = 'tel:+971123456789'}
           >
             Emergency Call
