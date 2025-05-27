@@ -43,7 +43,7 @@ const Chatbot = () => {
     },
     {
       keywords: ['emergency', 'urgent', 'roadside', 'breakdown'],
-      answer: 'We provide 24/7 emergency roadside assistance! Call us immediately at +971 XX XXX XXXX or use our WhatsApp button for urgent help. Our mobile team can reach you within 30 minutes in most Dubai areas.'
+      answer: 'We provide 24/7 emergency roadside assistance! Call us immediately at +971 55 656 3205 or use our WhatsApp button for urgent help. Our mobile team can reach you within 30 minutes in most Dubai areas.'
     },
     {
       keywords: ['booking', 'appointment', 'schedule', 'time'],
@@ -64,7 +64,7 @@ const Chatbot = () => {
       }
     }
     
-    return "Thank you for your question! For specific inquiries, please call us at +971 XX XXX XXXX or use our contact form. Our team will be happy to assist you with detailed information about our tyre repairing services in Dubai and other automotive solutions.";
+    return "Thank you for your question! For specific inquiries, please call us at +971 55 656 3205 or use our contact form. Our team will be happy to assist you with detailed information about our tyre repairing services in Dubai and other automotive solutions.";
   };
 
   const handleUserInfoSubmit = (e: React.FormEvent) => {
@@ -178,7 +178,7 @@ const Chatbot = () => {
                       type="tel"
                       value={userInfo.phone}
                       onChange={(e) => setUserInfo(prev => ({ ...prev, phone: e.target.value }))}
-                      placeholder="+971 XX XXX XXXX"
+                      placeholder="+971 55 656 3205"
                       required
                     />
                   </div>

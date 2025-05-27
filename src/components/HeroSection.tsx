@@ -39,7 +39,7 @@ const HeroSection = () => {
             size="lg" 
             variant="outline" 
             className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-8 py-4 text-lg font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 backdrop-blur-sm hover:shadow-lg hover:shadow-red-500/25"
-            onClick={() => window.location.href = 'tel:+971123456789'}
+            onClick={() => window.location.href = 'tel:+971556563205'}
           >
             Emergency Call
           </Button>

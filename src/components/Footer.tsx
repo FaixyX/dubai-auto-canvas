@@ -7,7 +7,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <img 
-              src="/lovable-uploads/4482cf2e-cf02-41d5-89ea-f4d89f3ad503.png" 
+              src="public\dubaicarservice_logo-rmbg.webp" 
               alt="Go Car Auto Service" 
               className="h-16 w-auto mb-4 filter brightness-0 invert"
             />
@@ -15,17 +15,6 @@ const Footer = () => {
               Dubai's premier automotive service provider, offering 24/7 mobile and workshop services. 
               Trusted by thousands of satisfied customers across the UAE.
             </p>
-            <div className="flex space-x-4">
-              <button className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
-                <span className="text-sm">📘</span>
-              </button>
-              <button className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
-                <span className="text-sm">📸</span>
-              </button>
-              <button className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
-                <span className="text-sm">📱</span>
-              </button>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -44,8 +33,8 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold mb-4 text-red-500">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>📞 +971 XX XXX XXXX</li>
-              <li>📧 info@gocar.ae</li>
+              <li>📞 +971 55 656 3205</li>
+              <li>📧 gocarautoservice@gmail.com</li>
               <li>📍 Al Quoz Industrial Area, Dubai</li>
               <li>🕒 24/7 Emergency Service</li>
             </ul>

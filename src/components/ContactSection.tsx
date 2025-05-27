@@ -71,7 +71,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                     className="mt-1 border-gray-300 focus:border-red-500 focus:ring-red-500"
-                    placeholder="+971 XX XXX XXXX"
+                    placeholder="+971 55 656 3205"
                     required
                   />
                 </div>
@@ -137,7 +137,7 @@ const ContactSection = () => {
                 <CardContent className="p-6 text-center">
                   <Phone className="w-8 h-8 mx-auto mb-3" />
                   <h4 className="font-bold mb-2">Call Us</h4>
-                  <p className="text-red-100">+971 XX XXX XXXX</p>
+                  <p className="text-red-100">+971 55 656 3205</p>
                 </CardContent>
               </Card>
 
@@ -165,7 +165,7 @@ const ContactSection = () => {
                 <CardContent className="p-6 text-center">
                   <Mail className="w-8 h-8 mx-auto mb-3" />
                   <h4 className="font-bold mb-2">Email</h4>
-                  <p className="text-gray-300">info@gocar.ae</p>
+                  <p className="text-gray-300">gocarautoservice@gmail.com</p>
                 </CardContent>
               </Card>
             </div>
@@ -173,31 +173,13 @@ const ContactSection = () => {
             {/* Map Card */}
             <Card className="shadow-2xl border-0 overflow-hidden">
               <CardContent className="p-0">
-                <div className="bg-gray-200 h-64 flex items-center justify-center relative overflow-hidden">
+                <div className="bg-gray-200 h-96 flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-gray-800/20"></div>
                   <div className="relative z-10 text-center text-gray-700">
                     <MapPin className="w-12 h-12 mx-auto mb-4 text-red-600" />
                     <h4 className="text-xl font-bold mb-2">Our Workshop</h4>
                     <p className="text-gray-600">Al Quoz Industrial Area<br />Dubai, UAE</p>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Social Media */}
-            <Card className="bg-gradient-to-r from-gray-900 to-black text-white border-0 shadow-2xl">
-              <CardContent className="p-6 text-center">
-                <h4 className="text-xl font-bold mb-4">Follow Us</h4>
-                <div className="flex justify-center space-x-6">
-                  <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                    <span className="text-xl">📘</span>
-                  </button>
-                  <button className="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                    <span className="text-xl">📸</span>
-                  </button>
-                  <button className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                    <span className="text-xl">📱</span>
-                  </button>
                 </div>
               </CardContent>
             </Card>
