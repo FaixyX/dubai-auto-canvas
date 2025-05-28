@@ -1,5 +1,5 @@
-import backgroundImage from '../../public/Go_Car.png';
 import { Button } from '@/components/ui/button';
+import { GO_CAR_IMAGE } from '@/assets';
 
 const HeroSection = () => {
   return (
@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${backgroundImage})`
+          backgroundImage: `url(${GO_CAR_IMAGE})`
         }}
       ></div>
       

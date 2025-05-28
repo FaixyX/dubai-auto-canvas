@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BRAND_LOGO } from '@/assets';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="public\dubaicarservice_logo-rmbg.webp" 
+              src={BRAND_LOGO} 
               alt="Go Car Auto Service" 
               className="h-16 w-auto"
             />

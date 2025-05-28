@@ -1,6 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+
+import { CAR_WASH_IMAGE } from '@/assets';
 
 const ImageCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -17,7 +18,8 @@ const ImageCarousel = () => {
       title: "Mobile Car Service"
     },
     {
-      src: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&h=400&fit=crop&crop=center",
+      // src: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&h=400&fit=crop&crop=center",
+      src: CAR_WASH_IMAGE,
       alt: "Car wash and detailing services Dubai - Go Car",
       title: "Professional Car Wash"
     },
@@ -81,6 +83,8 @@ const ImageCarousel = () => {
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
               {images.map((_, index) => (
                 <button
+                  type="button"
+                  aria-label={`Show image ${index + 1}`}
                   key={index}
                   onClick={() => setCurrentImage(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${

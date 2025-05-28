@@ -1,3 +1,4 @@
+import { BRAND_LOGO } from "@/assets";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <img 
-              src="public\dubaicarservice_logo-rmbg.webp" 
+              src={BRAND_LOGO} 
               alt="Go Car Auto Service" 
               className="h-16 w-auto mb-4 filter brightness-0 invert"
             />
