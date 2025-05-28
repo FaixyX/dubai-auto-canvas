@@ -1,32 +1,35 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
-import { CAR_WASH_IMAGE } from '@/assets';
+import { CAR_WASH_IMAGE, TYRE_REPAIR_IMAGE, MOBILE_REPAIR_IMAGE, EMERGENCY_REPAIR_IMAGE } from '@/assets';
 
 const ImageCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=400&fit=crop&crop=center",
+      //src: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=400&fit=crop&crop=center",
+      src: TYRE_REPAIR_IMAGE,
       alt: "Professional tyre repair service in Dubai - Go Car Auto Service",
-      title: "Expert Tyre Repair Services"
+      //title: "Expert Tyre Repair Services"
     },
     {
-      src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop&crop=center",
+      //src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop&crop=center",
+      src: MOBILE_REPAIR_IMAGE,
       alt: "Mobile car service Dubai - On-site automotive repairs",
-      title: "Mobile Car Service"
+      //title: "Mobile Car Service"
     },
     {
       // src: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&h=400&fit=crop&crop=center",
       src: CAR_WASH_IMAGE,
       alt: "Car wash and detailing services Dubai - Go Car",
-      title: "Professional Car Wash"
+      //title: "Professional Car Wash"
     },
     {
-      src: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=400&fit=crop&crop=center",
+      //src: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=400&fit=crop&crop=center",
+      src: EMERGENCY_REPAIR_IMAGE,
       alt: "Emergency roadside assistance Dubai - 24/7 service",
-      title: "24/7 Emergency Assistance"
+      //title: "24/7 Emergency Assistance"
     }
   ];
 
@@ -66,15 +69,9 @@ const ImageCarousel = () => {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fill"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-                    <div className="p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
-                      <p className="text-gray-200">Professional automotive services across Dubai</p>
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>
