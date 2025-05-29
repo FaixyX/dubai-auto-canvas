@@ -188,7 +188,7 @@ const ContactSection = () => {
                     <MapPin className="w-6 h-6 text-red-500" />
                     <h4 className="text-xl font-bold">Our Workshop Location</h4>
                   </div>
-                    <p className="text-gray-300">Al Quoz Industrial Area, Dubai</p>
+                    <p className="text-gray-300">Jumeirah Beach Residence, Dubai - United Arab Emirates</p>
                 </div>
                 <WorkshopMap />
               </CardContent>

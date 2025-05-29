@@ -36,7 +36,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li>📞 +971 55 656 3205</li>
               <li>📧 gocarautoservice@gmail.com</li>
-              <li>📍 Al Quoz Industrial Area, Dubai</li>
+              <li>📍 Jumeirah Beach Residence, Dubai - United Arab Emirates</li>
               <li>🕒 24/7 Emergency Service</li>
             </ul>
           </div>
