@@ -34,7 +34,6 @@ const WorkshopMap = () => {
             </div>
             
             <div className="mb-6">
-              <h5 className="font-semibold text-gray-800 mb-2">{location.name}</h5>
               <p className="text-gray-600 text-sm">{location.address}</p>
             </div>
             
