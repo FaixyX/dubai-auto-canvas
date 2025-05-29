@@ -9,7 +9,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import Chatbot from '@/components/Chatbot';
+import CallButton from '@/components/CallButton';
 
 const Index = () => {
   useEffect(() => {
@@ -40,7 +40,7 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
-      <Chatbot />
+      <CallButton />
     </div>
   );
 };

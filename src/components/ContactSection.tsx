@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { MapPin, Phone, Clock, Mail } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import WorkshopMap from '@/components/WorkshopMap';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,16 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!formData.phone || !formData.location) {
+      toast({
+        title: "Required Fields Missing",
+        description: "Please fill in your phone number and location.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     toast({
       title: "Booking Request Submitted!",
       description: "We'll contact you within 15 minutes to confirm your service.",
@@ -170,17 +181,17 @@ const ContactSection = () => {
               </Card>
             </div>
 
-            {/* Map Card */}
+            {/* Workshop Locations Map */}
             <Card className="shadow-2xl border-0 overflow-hidden">
               <CardContent className="p-0">
-                <div className="bg-gray-200 h-96 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-gray-800/20"></div>
-                  <div className="relative z-10 text-center text-gray-700">
-                    <MapPin className="w-12 h-12 mx-auto mb-4 text-red-600" />
-                    <h4 className="text-xl font-bold mb-2">Our Workshop</h4>
-                    <p className="text-gray-600">Al Quoz Industrial Area<br />Dubai, UAE</p>
+                <div className="bg-gray-800 text-white p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <MapPin className="w-6 h-6 text-red-500" />
+                    <h4 className="text-xl font-bold">Our Workshop Locations</h4>
                   </div>
+                  <p className="text-gray-300">We serve multiple locations across Dubai</p>
                 </div>
+                <WorkshopMap />
               </CardContent>
             </Card>
           </div>
