@@ -1,38 +1,36 @@
-
 import { Card, CardContent } from '@/components/ui/card';
-import { Car } from 'lucide-react';
+import { Car, Wrench, Droplets, Palette, Zap, Truck, Battery } from 'lucide-react';
 import { useEffect } from 'react';
-
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: "🔧",
+      icon: <Wrench className="w-8 h-8" />,
       title: "Tyre Repair",
       description: "Professional tyre repair and replacement services available 24/7"
     },
     {
-      icon: "🚿",
+      icon: <Droplets className="w-8 h-8" />,
       title: "Car Wash",
       description: "Premium car cleaning services at your location or our workshop"
     },
     {
-      icon: "🎨",
+      icon: <Palette className="w-8 h-8" />,
       title: "Denting/Painting",
       description: "Expert bodywork and painting services to restore your car's look"
     },
     {
-      icon: "⚡",
+      icon: <Zap className="w-8 h-8" />,
       title: "Mechanical/Electrical",
       description: "Complete mechanical and electrical repair services by certified technicians"
     },
     {
-      icon: "🚗",
+      icon: <Truck className="w-8 h-8" />,
       title: "Roadside Help",
       description: "Emergency roadside assistance anywhere in Dubai, anytime"
     },
     {
-      icon: "🔋",
+      icon: <Battery className="w-8 h-8" />,
       title: "Battery Service",
       description: "Battery testing, charging, and replacement services"
     }
@@ -79,7 +77,7 @@ const ServicesSection = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8 text-center">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: `${index * 200}ms` }}>
+                <div className="flex justify-center mb-4 text-red-600 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: `${index * 200}ms` }}>
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
@@ -116,7 +114,7 @@ const ServicesSection = () => {
           <Card className="bg-gradient-to-br from-gray-800 to-black text-white border-0 overflow-hidden relative animate-on-scroll-right hover-lift">
             <CardContent className="p-8 relative z-10">
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 mr-3 text-2xl animate-bounce-gentle">🏭</div>
+                <Wrench className="w-8 h-8 mr-3 animate-bounce-gentle" />
                 <h3 className="text-2xl font-bold">Workshop Service</h3>
               </div>
               <p className="text-lg mb-4 text-gray-300">
