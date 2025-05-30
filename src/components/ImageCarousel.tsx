@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -8,28 +9,20 @@ const ImageCarousel = () => {
 
   const images = [
     {
-      //src: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=400&fit=crop&crop=center",
       src: TYRE_REPAIR_IMAGE,
       alt: "Professional tyre repair service in Dubai - Go Car Auto Service",
-      //title: "Expert Tyre Repair Services"
     },
     {
-      //src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop&crop=center",
       src: MOBILE_REPAIR_IMAGE,
       alt: "Mobile car service Dubai - On-site automotive repairs",
-      //title: "Mobile Car Service"
     },
     {
-      // src: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&h=400&fit=crop&crop=center",
       src: CAR_WASH_IMAGE,
       alt: "Car wash and detailing services Dubai - Go Car",
-      //title: "Professional Car Wash"
     },
     {
-      //src: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=400&fit=crop&crop=center",
       src: EMERGENCY_REPAIR_IMAGE,
       alt: "Emergency roadside assistance Dubai - 24/7 service",
-      //title: "24/7 Emergency Assistance"
     }
   ];
 
@@ -54,26 +47,29 @@ const ImageCarousel = () => {
 
         <Card className="max-w-4xl mx-auto overflow-hidden shadow-2xl">
           <CardContent className="p-0 relative">
-            <div className="relative h-64 md:h-96 overflow-hidden">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-                    index === currentImage 
-                      ? 'translate-x-0 opacity-100' 
-                      : index < currentImage 
-                        ? '-translate-x-full opacity-0' 
-                        : 'translate-x-full opacity-0'
-                  }`}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-fill"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
+            <div className="relative h-64 md:h-96 overflow-hidden bg-gray-200">
+              <div 
+                className="flex transition-transform duration-1000 ease-in-out h-full"
+                style={{ 
+                  transform: `translateX(-${currentImage * 100}%)`,
+                  width: `${images.length * 100}%`
+                }}
+              >
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="w-full h-full flex-shrink-0"
+                    style={{ width: `${100 / images.length}%` }}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Indicators */}
