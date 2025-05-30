@@ -1,36 +1,38 @@
+
 import { Card, CardContent } from '@/components/ui/card';
-import { Car, Wrench, Droplets, Palette, Zap, Truck, Battery } from 'lucide-react';
+import { Car, Wrench } from 'lucide-react';
 import { useEffect } from 'react';
+import { CAR_WASH_IMAGE, TYRE_REPAIR_IMAGE, MOBILE_REPAIR_IMAGE, EMERGENCY_REPAIR_IMAGE } from '@/assets';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Wrench className="w-8 h-8" />,
+      image: TYRE_REPAIR_IMAGE,
       title: "Tyre Repair",
       description: "Professional tyre repair and replacement services available 24/7"
     },
     {
-      icon: <Droplets className="w-8 h-8" />,
+      image: CAR_WASH_IMAGE,
       title: "Car Wash",
       description: "Premium car cleaning services at your location or our workshop"
     },
     {
-      icon: <Palette className="w-8 h-8" />,
+      image: MOBILE_REPAIR_IMAGE,
       title: "Denting/Painting",
       description: "Expert bodywork and painting services to restore your car's look"
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      image: EMERGENCY_REPAIR_IMAGE,
       title: "Mechanical/Electrical",
       description: "Complete mechanical and electrical repair services by certified technicians"
     },
     {
-      icon: <Truck className="w-8 h-8" />,
+      image: MOBILE_REPAIR_IMAGE,
       title: "Roadside Help",
       description: "Emergency roadside assistance anywhere in Dubai, anytime"
     },
     {
-      icon: <Battery className="w-8 h-8" />,
+      image: TYRE_REPAIR_IMAGE,
       title: "Battery Service",
       description: "Battery testing, charging, and replacement services"
     }
@@ -77,8 +79,13 @@ const ServicesSection = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8 text-center">
-                <div className="flex justify-center mb-4 text-red-600 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: `${index * 200}ms` }}>
-                  {service.icon}
+                <div className="flex justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-20 h-20 object-cover rounded-lg shadow-md animate-float"
+                    style={{ animationDelay: `${index * 200}ms` }}
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
                   {service.title}
