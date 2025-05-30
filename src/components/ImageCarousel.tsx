@@ -47,29 +47,24 @@ const ImageCarousel = () => {
 
         <Card className="max-w-4xl mx-auto overflow-hidden shadow-2xl">
           <CardContent className="p-0 relative">
-            <div className="relative h-64 md:h-96 overflow-hidden bg-gray-200">
-              <div 
-                className="flex transition-transform duration-1000 ease-in-out h-full"
-                style={{ 
-                  transform: `translateX(-${currentImage * 100}%)`,
-                  width: `${images.length * 100}%`
-                }}
-              >
-                {images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="w-full h-full flex-shrink-0"
-                    style={{ width: `${100 / images.length}%` }}
-                  >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </div>
+            <div className="relative h-64 md:h-96 overflow-hidden">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentImage 
+                      ? 'opacity-100 z-10' 
+                      : 'opacity-0 z-0'
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
 
             {/* Indicators */}
